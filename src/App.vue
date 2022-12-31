@@ -1,6 +1,7 @@
 <template>
   <main class="app-wrapper">
     <div class="app">
+      <Navigation />
       <router-view />
     </div>
   </main>
@@ -9,10 +10,13 @@
 <script lang="ts">
 
 import { defineComponent } from "vue";
+import Navigation from "./components/Navigation.vue";
 
 export default defineComponent({
-  name: "app",
-  components: {},
+  name: 'App',
+  components: {
+    Navigation,
+  },
   data() {
     return {};
   },
