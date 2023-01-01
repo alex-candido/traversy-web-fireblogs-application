@@ -3,6 +3,7 @@
     <div class="app">
       <Navigation />
       <router-view />
+      <Footer />
     </div>
   </main>
 </template>
@@ -10,12 +11,14 @@
 <script lang="ts">
 
 import { defineComponent } from "vue";
+import Footer from "./components/Footer.vue";
 import Navigation from "./components/Navigation.vue";
 
 export default defineComponent({
   name: 'App',
   components: {
     Navigation,
+    Footer
   },
   data() {
     return {};

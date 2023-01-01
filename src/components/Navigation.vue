@@ -13,13 +13,7 @@
         </ul>
       </div>
     </nav>
-    <img 
-      @click="toggleMobileNav" 
-      class="menu-icon" 
-      src="../assets/Icons/bars-regular.png" 
-      alt="logo"
-      v-show="mobile"
-    >
+    <img @click="toggleMobileNav" class="menu-icon" src="../assets/Icons/bars-regular.png" alt="logo" v-show="mobile">
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" to="/">Home</router-link>
