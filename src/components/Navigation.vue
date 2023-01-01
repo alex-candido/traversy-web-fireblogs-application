@@ -31,6 +31,25 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Navigation",
   components: {
+  },
+  data() {
+    return {
+      mobile: null as null | boolean,
+      mobileNav: null as null | boolean,
+      windownWidth: null as null | boolean | number,
+    }
+  },
+  methods: {
+    checkScreen() {
+      this.windownWidth = window.innerWidth;
+      if(this.windownWidth <= 750) {
+        this.mobile = true;
+        return;
+      }
+      this.mobile = false;
+      this.mobileNav = false;
+      return;
+    }
   }
 });
 </script>
