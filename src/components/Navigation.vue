@@ -5,7 +5,7 @@
         <router-link class="header" to="/">FireBlogs</router-link>
       </div>
       <div class="nav-links">
-        <ul>
+        <ul v-show="!mobile">
           <router-link class="link" to="/">Home</router-link>
           <router-link class="link" to="/">Blogs</router-link>
           <router-link class="link" to="/">Create Post</router-link>
@@ -13,9 +13,15 @@
         </ul>
       </div>
     </nav>
-    <img class="menu-icon" src="../assets/Icons/bars-regular.png" alt="logo">
+    <img 
+      @click="toggleMobileNav" 
+      class="menu-icon" 
+      src="../assets/Icons/bars-regular.png" 
+      alt="logo"
+      v-show="mobile"
+    >
     <transition name="mobile-nav">
-      <ul class="mobile-nav">
+      <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" to="/">Home</router-link>
         <router-link class="link" to="/">Blogs</router-link>
         <router-link class="link" to="/">Create Post</router-link>
@@ -39,6 +45,10 @@ export default defineComponent({
       windownWidth: null as null | boolean | number,
     }
   },
+  created() {
+    window.addEventListener("resize", this.checkScreen);
+    this.checkScreen();
+  },
   methods: {
     checkScreen() {
       this.windownWidth = window.innerWidth;
@@ -49,6 +59,9 @@ export default defineComponent({
       this.mobile = false;
       this.mobileNav = false;
       return;
+    },
+    toggleMobileNav() {
+      this.mobileNav =!this.mobileNav;
     }
   }
 });
