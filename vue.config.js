@@ -12,3 +12,4 @@ module.exports = defineConfig({
       .loader("vue-svg-loader");
   },
 });
+
