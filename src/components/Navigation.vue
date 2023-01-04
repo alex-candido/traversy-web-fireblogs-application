@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { Navigation } from "../interfaces/Navigation";
 
 export default defineComponent({
   name: "Navigation",
@@ -34,10 +35,10 @@ export default defineComponent({
   },
   data() {
     return {
-      mobile: null as null | boolean,
-      mobileNav: null as null | boolean,
-      windownWidth: null as null | boolean | number,
-    }
+      mobile: null,
+      mobileNav: null,
+      windownWidth: null,
+    } as Navigation;
   },
   created() {
     window.addEventListener("resize", this.checkScreen);
