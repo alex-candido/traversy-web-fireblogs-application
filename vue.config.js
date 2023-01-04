@@ -5,6 +5,7 @@ module.exports = defineConfig({
     const svgRule = config.module.rule("svg");
     svgRule.uses.clear();
     svgRule
+      .test(/\.svg$/)
       .use("babel-loader")
       .loader("babel-loader")
       .end()
@@ -13,3 +14,5 @@ module.exports = defineConfig({
   },
 });
 
+
+        
