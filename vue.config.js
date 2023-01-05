@@ -1,12 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true,
+  // transpileDependencies: true,
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
-
     svgRule.uses.clear();
-
     svgRule
+      .test(/\.svg$/)
       .use("babel-loader")
       .loader("babel-loader")
       .end()
@@ -14,3 +13,6 @@ module.exports = defineConfig({
       .loader("vue-svg-loader");
   },
 });
+
+
+        
